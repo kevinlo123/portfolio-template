@@ -3,19 +3,273 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --foreground-rgb-light: 0, 0, 0;
+  --background-start-rgb-light: 255, 255, 255; /* White background for light mode */
+  --background-end-rgb-light: 255, 255, 255; /* White background for light mode */
+
+  --foreground-rgb-dark: 255, 255, 255;
+  --background-start-rgb-dark: 0, 0, 0; /* Black background for dark mode */
+  --background-end-rgb-dark: 0, 0, 0; /* Black background for dark mode */
+
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.bg-default-200 {
+  --tw-bg-opacity: 1;
+  background-color: lightgrey;
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+.group[data-selected=true] .group-data-\[selected\=true\]\:bg-success {
+  --tw-bg-opacity: 1;
+  background-color: #18c964;
+}
+
+.light-mode {
+  --foreground-rgb: var(--foreground-rgb-light);
+  --background-start-rgb: var(--background-start-rgb-light);
+  --background-end-rgb: var(--background-end-rgb-light);
+  background: linear-gradient(to bottom, rgb(var(--background-start-rgb-light)), rgb(var(--background-end-rgb-light)));
+  color: black;
+}
+
+.dark-mode {
+  --foreground-rgb: var(--foreground-rgb-dark);
+  --background-start-rgb: var(--background-start-rgb-dark);
+  --background-end-rgb: var(--background-end-rgb-dark);
+  background: linear-gradient(to bottom, rgb(var(--background-start-rgb-dark)), rgb(var(--background-end-rgb-dark)));
+  color: white;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,"Apple Color Emoji","Segoe UI Emoji",Segoe UI Symbol,"Noto Color Emoji";
+}
+
+.light-mode #resume {
+  background: linear-gradient(to bottom, rgb(var(--background-start-rgb-dark)), rgb(var(--background-end-rgb-dark)));
+  color: white;
+}
+
+.dark-mode #resume {
+  background: linear-gradient(to bottom, rgb(var(--background-start-rgb-light)), rgb(var(--background-end-rgb-light)));
+  color: black;
+}
+
+.light-mode .toggle {
+  background: transparent;
+  border: 1px solid black;
+  color: black;
+}
+
+.dark-mode .toggle {
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+}
+
+.light-mode .animate-bounce {
+  stroke: black;
+}
+
+.dark-mode .animate-bounce {
+  stroke: white;
+}
+
+
+a:hover:not(.border-white, #resume) {
+  text-shadow: 0 0 10px rgb(190 254 194), 0 0 122px rgb(173 236 175);
+  transition: .3s ease-in-out;
+}
+
+.border-white {
+  transition: .3s ease-in-out;
+}
+
+
+.dark-mode .quote-text {
+  color: white;
+}
+
+.light-mode .quote-text {
+  color: black;
+}
+
+.dark-mode .text > p {
+  background: linear-gradient(to right,rgb(255,255,255) 50%,rgb(37,37,37) 50%);
+  background-size: 200% 100%;
+  background-position-x: 100%;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  text-align: right;
+  line-height: 1.2;
+}
+
+.light-mode .text > p {
+  background: linear-gradient(to right, rgb(255, 255, 255) 50%, rgba(255, 255, 255, 0) 50%);
+  /* Adjust the above colors as needed for better readability */
+  background-size: 200% 100%;
+  background-position-x: 100%;
+  color: black; /* Change text color to ensure readability */
+  background-clip: text;
+  -webkit-background-clip: text;
+  text-align: right;
+  line-height: 1.2;
+}
+
+.dark-mode .project-line {
+  border-color: white;
+}
+
+.light-mode .project-line {
+  border-color: black;
+}
+
+.light-mode footer svg {
+  stroke: black;
+}
+
+.dark-mode footer svg {
+  stroke: white;
+}
+
+.dark-mode footer .contact-link {
+  border-color: white;
+}
+
+.light-mode footer .contact-link {
+  border-color: black;
+}
+
+.dark-mode .project-detail .tech-used {
+  border-color: white;
+}
+
+.light-mode .project-detail .tech-used {
+  border-color: black;
+}
+
+.dark-mode .project-detail svg path g {
+  stroke: black;
+}
+
+.light-mode .project-detail svg path g {
+  stroke: white;
+}
+
+.dark-mode .project-detail svg path {
+  stroke: white;
+}
+
+.light-mode .project-detail svg path {
+  stroke: black;
+}
+
+.light-mode form input {
+  border-color: black;
+  color: black;
+}
+
+.dark-mode form input {
+  border-color: white;
+  color: white;
+}
+
+.light-mode form input::placeholder {
+  color: black;
+}
+
+.light-mode form textarea {
+  border-color: black;
+  color: black;
+}
+
+.dark-mode form textarea {
+  border-color: white;
+  color: white;
+}
+
+.light-mode form textarea::placeholder {
+  color: black;
+}
+
+.light-mode .section-contact__inner-two > div {
+  border-color: black;
+}
+
+.light-mode .contact form button {
+  border-color: black !important;
+}
+
+.light-mode .contact a {
+  color: black;
+}
+
+.dark-mode .contact a {
+  color: white;
+}
+
+.light-mode .contact svg path {
+  stroke: black;
+}
+
+.dark-mode .contact svg path {
+  stroke: white;
+}
+
+form .input:active, form .input:focus, form .input:focus-visible {
+  box-shadow:  0 0 3px rgb(190 254 194), 0 0 10px rgb(173 236 175);
+  outline: none;
+  transition: .3s ease-in-out;
+}
+
+.get-in-touch:hover {
+  box-shadow:  0 0 3px rgb(190 254 194), 0 0 10px rgb(173 236 175);
+  transition: .3s ease-in-out;
+}
+
+header label {
+  position: relative;
+  left: .75rem;
+}
+
+
+.light-mode footer img {
+  display: none;
+}
+
+.hamburger-react {
+  z-index: 52;
+}
+
+.light-mode header nav {
+  background-color: white;
+}
+
+.light-mode header nav a:after {
+  background-color: black;
+}
+
+.dark-mode header nav a:after {
+  background-color: white;
+}
+
+.fade-in {
+  opacity: 0;
+  transition: opacity .5s ease-in-out; /* Adjust the duration and timing function as needed */
+}
+
+.fade-in.active {
+  opacity: 1;
+}
+
+.light-mode .animate-spin {
+  border-color: black;
+}
+
+.dark-mode .animate-spin {
+  border-color: white;
+}
+
+.tradingview-widget-container {
+  height: 555px !important;
 }
