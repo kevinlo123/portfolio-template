@@ -14,7 +14,7 @@ export default function Footer() {
             pathname.includes('contact') ? 
             <Image 
               className="m-auto lg:ml-6"
-              src="/about/placeholder.jpeg"
+              src="/about/placeholder.jpg"
               width={100}
               height={100}
               alt="my logo"
@@ -23,7 +23,7 @@ export default function Footer() {
             <>
               <Image 
                 className="lg:hidden m-auto lg:ml-6"
-                src="/about/placeholder.jpeg"
+                src="/about/placeholder.jpg"
                 width={100}
                 height={100}
                 style={{'marginBottom': '4rem'}}
